@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vijayaprakash T — Operations Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1417;
+    --ink-2:#141d21;
+    --surface:#18232800;
+    --line:#26343a;
+    --text:#e8ede9;
+    --muted:#8fa3a0;
+    --accent:#31c48d;
+    --accent-dim:#1f7d5c;
+    --display:'Space Grotesk',sans-serif;
+    --body:'Inter',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
+
+  /* subtle grid backdrop */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    opacity:.13;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);
+  }
+  .wrap,nav,section,footer{position:relative;z-index:1}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(14,20,23,.72);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-family:var(--mono);font-size:14px;letter-spacing:.5px;color:var(--text)}
+  .brand b{color:var(--accent)}
+  .navlinks{display:flex;gap:26px;font-size:14px;font-weight:500}
+  .navlinks a{color:var(--muted);transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  @media(max-width:600px){.navlinks{display:none}}
+
+  /* HERO */
+  header{padding:110px 0 90px}
+  .eyebrow{
+    font-family:var(--mono);font-size:13px;color:var(--accent);
+    letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent)}
+  h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(38px,7vw,68px);line-height:1.04;letter-spacing:-1.5px;
+    margin-bottom:24px;
+  }
+  h1 .accent{color:var(--accent)}
+  .lede{font-size:clamp(16px,2.3vw,19px);color:var(--muted);max-width:620px;margin-bottom:38px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:15px;
+    padding:13px 24px;border-radius:8px;transition:all .2s;cursor:pointer;
+    display:inline-flex;align-items:center;gap:9px;
+  }
+  .btn-primary{background:var(--accent);color:#04120c}
+  .btn-primary:hover{background:#3ad79c;transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* SECTION SHELL */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-label{
+    font-family:var(--mono);font-size:13px;color:var(--muted);
+    letter-spacing:1.5px;text-transform:uppercase;margin-bottom:30px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .sec-label span{color:var(--accent)}
+  h2{font-family:var(--display);font-weight:600;font-size:clamp(24px,4vw,34px);letter-spacing:-.5px;margin-bottom:20px}
+
+  /* ABOUT */
+  .about p{color:var(--muted);max-width:680px;font-size:16.5px;margin-bottom:16px}
+  .about strong{color:var(--text);font-weight:600}
+  .stat-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:34px}
+  .stat .num{font-family:var(--display);font-weight:700;font-size:34px;color:var(--accent);line-height:1}
+  .stat .cap{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.5px;margin-top:8px;text-transform:uppercase}
+
+  /* SKILLS */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  @media(max-width:600px){.skill-grid{grid-template-columns:1fr}}
+  .skill-card{background:var(--ink);padding:24px 22px}
+  .skill-card h3{
+    font-family:var(--mono);font-size:12px;color:var(--accent);
+    letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;font-weight:500;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{
+    font-size:13.5px;color:var(--text);background:var(--ink-2);
+    border:1px solid var(--line);padding:6px 12px;border-radius:6px;
+    transition:all .2s;
+  }
+  .tag:hover{border-color:var(--accent-dim);color:var(--accent)}
+
+  /* EXPERIENCE */
+  .job{border:1px solid var(--line);border-radius:12px;padding:28px 26px;background:linear-gradient(180deg,var(--ink-2),transparent)}
+  .job-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+  .job-title{font-family:var(--display);font-weight:600;font-size:20px}
+  .job-co{color:var(--accent);font-weight:600;font-size:15px}
+  .job-meta{font-family:var(--mono);font-size:13px;color:var(--muted)}
+  .job ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:13px}
+  .job li{position:relative;padding-left:22px;color:var(--muted);font-size:15.5px}
+  .job li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
+  .job li strong{color:var(--text);font-weight:500}
+  .intern{margin-top:16px;padding:18px 22px;border:1px dashed var(--line);border-radius:10px}
+  .intern .job-title{font-size:16px}
+  .intern p{color:var(--muted);font-size:14.5px;margin-top:8px}
+
+  /* EDU + CERTS */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:600px){.two-col{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:12px;padding:24px 22px}
+  .panel h3{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+  .panel .item{margin-bottom:14px}
+  .panel .item:last-child{margin-bottom:0}
+  .panel .t{font-weight:600;font-size:15.5px}
+  .panel .s{color:var(--muted);font-size:14px;margin-top:2px}
+
+  /* CONTACT */
+  .contact{text-align:center;padding:80px 0 70px}
+  .contact h2{margin-bottom:14px}
+  .contact p{color:var(--muted);max-width:460px;margin:0 auto 30px}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  footer{border-top:1px solid var(--line);padding:26px 0}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">VT<b>.</b></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Operations Engineer · Payments</div>
+    <h1>Vijayaprakash T<br><span class="accent">payment operations</span> &amp; automation</h1>
+    <p class="lede">I keep money moving. I investigate transactions, reconcile settlements, and build automation across acquirer and processor systems — turning messy payment operations into reliable, repeatable workflows.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about reveal">
+  <div class="wrap">
+    <div class="sec-label"><span>01</span> About</div>
+    <h2>Domain depth meets scripting.</h2>
+    <p>I'm an Operations Engineer with over two years at a payment technology company, working across the full payment lifecycle — <strong>card acquiring, settlement, reconciliation, and transaction investigation</strong>. My day-to-day sits directly on acquirer and processor platforms including Fiserv, Worldline, and NETS.</p>
+    <p>What sets my work apart is the combination of payments domain knowledge with real technical skill: I write <strong>advanced SQL</strong> to investigate and reconcile data, and build <strong>Node.js and Python automation</strong> that removes manual effort from recurring operations. I like problems that are equal parts detective work and engineering.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">2+</div><div class="cap">Years in payments</div></div>
+      <div class="stat"><div class="num">3</div><div class="cap">Acquirer platforms</div></div>
+      <div class="stat"><div class="num">SQL</div><div class="cap">+ Node.js / Python</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="wrap">
+    <div class="sec-label"><span>02</span> Skills</div>
+    <h2>What I work with.</h2>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <h3>Payments &amp; Domain</h3>
+        <div class="tags">
+          <span class="tag">Card acquiring &amp; settlement</span>
+          <span class="tag">Reconciliation</span>
+          <span class="tag">Transaction lifecycle</span>
+          <span class="tag">Chargebacks &amp; disputes</span>
+          <span class="tag">Terminal &amp; merchant lifecycle</span>
+          <span class="tag">POS / contactless</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Technical</h3>
+        <div class="tags">
+          <span class="tag">SQL / PostgreSQL</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Python</span>
+          <span class="tag">pandas</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">JSON</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Platforms &amp; Systems</h3>
+        <div class="tags">
+          <span class="tag">Fiserv</span>
+          <span class="tag">Worldline</span>
+          <span class="tag">NETS</span>
+          <span class="tag">Payment terminals / POS</span>
+          <span class="tag">Settlement systems</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Operational Strengths</h3>
+        <div class="tags">
+          <span class="tag">Incident triage</span>
+          <span class="tag">Root-cause analysis</span>
+          <span class="tag">Merchant &amp; partner integration</span>
+          <span class="tag">Process automation</span>
+          <span class="tag">Cross-functional collaboration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="reveal">
+  <div class="wrap">
+    <div class="sec-label"><span>03</span> Experience</div>
+    <h2>Where I've done the work.</h2>
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <div class="job-title">Operations Engineer</div>
+          <div class="job-co">Surfboard Payments</div>
+        </div>
+        <div class="job-meta">2024 — Present · Chennai</div>
+      </div>
+      <ul>
+        <li>Own the <strong>end-to-end investigation and resolution</strong> of payment transaction issues across acquirer and processor systems (Fiserv, Worldline, NETS), driving each case to closure with merchants and partners.</li>
+        <li>Ensure <strong>accurate and timely merchant payouts</strong> by processing and validating daily multi-currency settlement files and resolving payout and bank-file discrepancies.</li>
+        <li>Serve as <strong>first responder for production issues</strong> on live payment flows — triaging errors, isolating root causes, and partnering with engineering on fixes.</li>
+        <li>Apply <strong>advanced SQL</strong> across payment, order, and settlement data to investigate transactions, reconcile records, and deliver operational insight.</li>
+        <li>Design and maintain <strong>Node.js and Python automation</strong> for recurring workflows — data processing, currency conversion, and reporting — cutting manual effort and turnaround time.</li>
+        <li>Reconcile external reports against internal records to resolve missing or mismatched transactions, safeguarding data integrity across the payment pipeline.</li>
+        <li>Manage <strong>terminal and device onboarding</strong>, registration, and configuration across multiple hardware models, and support merchant/partner integrations through go-live.</li>
+      </ul>
+    </div>
+    <div class="intern">
+      <div class="job-head">
+        <div><div class="job-title">Software Testing Intern</div></div>
+        <div class="job-meta">Chakram Private Limited · Chennai</div>
+      </div>
+      <p>Executed manual and automated test cases, wrote test scenarios, and documented defects; used JIRA to track bugs on an e-commerce platform, improving the verification workflow and release stability.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="reveal">
+  <div class="wrap">
+    <div class="sec-label"><span>04</span> Education &amp; Certifications</div>
+    <h2>Foundation.</h2>
+    <div class="two-col">
+      <div class="panel">
+        <h3>Education</h3>
+        <div class="item">
+          <div class="t">B.E. Computer Science &amp; Engineering</div>
+          <div class="s">Easwari Engineering College · CGPA 8.6 · 2024</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Certifications</h3>
+        <div class="item">
+          <div class="t">Data Analytics with Python</div>
+          <div class="s">NPTEL · IIT Roorkee</div>
+        </div>
+        <div class="item">
+          <div class="t">AI &amp; Virtual Reality Workshop</div>
+          <div class="s">Monolith Academy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact reveal">
+  <div class="wrap">
+    <div class="sec-label" style="justify-content:center"><span>05</span> Contact</div>
+    <h2>Let's talk payments.</h2>
+    <p>Open to Payment Operations, Technical Support, Integration, and DevOps Engineering roles. Reach out and I'll get back to you.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:vijayaprakashthinakaran@gmail.com">vijayaprakashthinakaran@gmail.com</a>
+      <a class="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
+      <a class="btn btn-ghost" href="tel:+916381871490">+91 63818 71490</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Vijayaprakash T</p>
+    <p>Chennai, India</p>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
