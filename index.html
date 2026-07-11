@@ -1,160 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vijayaprakash T — Operations Engineer</title>
+<title>Vijayaprakash T — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#0e1417;
-    --ink-2:#141d21;
-    --surface:#18232800;
-    --line:#26343a;
-    --text:#e8ede9;
-    --muted:#8fa3a0;
-    --accent:#31c48d;
-    --accent-dim:#1f7d5c;
-    --display:'Space Grotesk',sans-serif;
-    --body:'Inter',sans-serif;
-    --mono:'JetBrains Mono',monospace;
+  :root{ --red:#c0341d; --red-2:#df4325; }
+  [data-theme="dark"]{
+    --bg:#0c0c0b;--bg-2:#141310;--surface:#161513;--line:#2b2925;
+    --cream:#ece3d2;--text:#ece3d2;--muted:#948b7c;--ink:#0c0c0b;
+  }
+  [data-theme="light"]{
+    --bg:#ece4d5;--bg-2:#e2d9c7;--surface:#f2ece0;--line:#cabfa9;
+    --cream:#15130d;--text:#15130d;--muted:#665f4f;--ink:#ece4d5;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    background:var(--ink);
-    color:var(--text);
-    font-family:var(--body);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:920px;margin:0 auto;padding:0 28px}
-
-  /* subtle grid backdrop */
-  body::before{
-    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:64px 64px;
-    opacity:.13;
-    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);
-    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);
-  }
-  .wrap,nav,section,footer{position:relative;z-index:1}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  .black{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-1.5px;line-height:.86}
+  .script{font-family:'Caveat',cursive;color:var(--red-2);letter-spacing:0;text-transform:none}
 
   /* NAV */
-  nav{
-    position:sticky;top:0;z-index:50;
-    backdrop-filter:blur(10px);
-    background:rgba(14,20,23,.72);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .brand{font-family:var(--mono);font-size:14px;letter-spacing:.5px;color:var(--text)}
-  .brand b{color:var(--accent)}
-  .navlinks{display:flex;gap:26px;font-size:14px;font-weight:500}
+  nav{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:2px solid var(--text)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.5px}
+  .brand b{color:var(--red-2)}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .navlinks{display:flex;gap:22px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
   .navlinks a{color:var(--muted);transition:color .2s}
-  .navlinks a:hover{color:var(--text)}
-  @media(max-width:600px){.navlinks{display:none}}
+  .navlinks a:hover{color:var(--red-2)}
+  @media(max-width:720px){.navlinks{display:none}}
+  .theme-btn{width:34px;height:34px;border:2px solid var(--text);background:transparent;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+  .theme-btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+  .theme-btn svg{width:15px;height:15px}
+  [data-theme="dark"] .sun{display:block}[data-theme="dark"] .moon{display:none}
+  [data-theme="light"] .sun{display:none}[data-theme="light"] .moon{display:block}
 
-  /* HERO */
-  header{padding:110px 0 90px}
-  .eyebrow{
-    font-family:var(--mono);font-size:13px;color:var(--accent);
-    letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;
-    display:flex;align-items:center;gap:10px;
-  }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent)}
-  h1{
-    font-family:var(--display);font-weight:700;
-    font-size:clamp(38px,7vw,68px);line-height:1.04;letter-spacing:-1.5px;
-    margin-bottom:24px;
-  }
-  h1 .accent{color:var(--accent)}
-  .lede{font-size:clamp(16px,2.3vw,19px);color:var(--muted);max-width:620px;margin-bottom:38px}
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{
-    font-family:var(--body);font-weight:600;font-size:15px;
-    padding:13px 24px;border-radius:8px;transition:all .2s;cursor:pointer;
-    display:inline-flex;align-items:center;gap:9px;
-  }
-  .btn-primary{background:var(--accent);color:#04120c}
-  .btn-primary:hover{background:#3ad79c;transform:translateY(-2px)}
-  .btn-ghost{border:1px solid var(--line);color:var(--text)}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  /* HERO - centered name */
+  header{padding:72px 0 0;text-align:center;position:relative}
+  .hero-kicker{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--muted);margin-bottom:26px}
+  .hero-kicker b{color:var(--red-2)}
+  h1.name{font-size:clamp(52px,14vw,168px);margin:0 auto}
+  h1.name .dot{color:var(--red-2)}
+  .hero-role{font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:6px;font-size:clamp(13px,2.4vw,20px);margin-top:14px}
+  .hero-script{font-family:'Caveat',cursive;font-size:clamp(28px,5vw,52px);color:var(--red-2);display:block;margin-top:4px}
+  .lede{font-size:clamp(15px,1.9vw,17px);color:var(--muted);max-width:600px;margin:26px auto 30px}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+  .btn{font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;padding:15px 26px;transition:all .2s;cursor:pointer;display:inline-flex;align-items:center;gap:9px;border:2px solid var(--text)}
+  .btn svg{width:15px;height:15px}
+  .btn-red{background:var(--red);border-color:var(--red);color:#f3ece0}
+  .btn-red:hover{background:var(--red-2);border-color:var(--red-2);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--text)}
+  .btn-outline{background:transparent;color:var(--text)}
+  .btn-outline:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--red)}
 
-  /* SECTION SHELL */
-  section{padding:64px 0;border-top:1px solid var(--line)}
-  .sec-label{
-    font-family:var(--mono);font-size:13px;color:var(--muted);
-    letter-spacing:1.5px;text-transform:uppercase;margin-bottom:30px;
-    display:flex;align-items:center;gap:12px;
-  }
-  .sec-label span{color:var(--accent)}
-  h2{font-family:var(--display);font-weight:600;font-size:clamp(24px,4vw,34px);letter-spacing:-.5px;margin-bottom:20px}
+  /* MARQUEE */
+  .marquee{border-top:2px solid var(--text);border-bottom:2px solid var(--text);background:var(--red);overflow:hidden;white-space:nowrap;padding:12px 0}
+  .marquee-track{display:inline-block;animation:scroll 22s linear infinite}
+  .marquee-track span{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:20px;letter-spacing:1px;color:#f3ece0;padding:0 22px}
+  .marquee-track span::after{content:"✦";color:#0c0c0b;padding-left:22px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
-  /* ABOUT */
-  .about p{color:var(--muted);max-width:680px;font-size:16.5px;margin-bottom:16px}
+  /* SECTIONS */
+  section{padding:70px 0;border-bottom:2px solid var(--text)}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:38px;flex-wrap:wrap}
+  .sec-num{font-family:'Archivo Black',sans-serif;font-size:clamp(30px,5vw,48px);color:var(--red-2);-webkit-text-stroke:0;line-height:1}
+  h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;letter-spacing:-1px;font-size:clamp(30px,6vw,56px);line-height:.9}
+  .sec-head .script{font-size:clamp(26px,5vw,46px)}
+
+  .about-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:40px}
+  @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:26px}}
+  .about p{color:var(--muted);font-size:16.5px;margin-bottom:14px}
   .about strong{color:var(--text);font-weight:600}
-  .stat-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:34px}
-  .stat .num{font-family:var(--display);font-weight:700;font-size:34px;color:var(--accent);line-height:1}
-  .stat .cap{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.5px;margin-top:8px;text-transform:uppercase}
+  .stats{display:grid;gap:0;border:2px solid var(--text)}
+  .stat{padding:18px 20px;border-bottom:2px solid var(--text)}
+  .stat:last-child{border-bottom:none}
+  .stat .num{font-family:'Archivo Black',sans-serif;font-size:38px;line-height:1;color:var(--red-2)}
+  .stat .cap{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-top:5px;font-weight:600}
 
-  /* SKILLS */
-  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  @media(max-width:600px){.skill-grid{grid-template-columns:1fr}}
-  .skill-card{background:var(--ink);padding:24px 22px}
-  .skill-card h3{
-    font-family:var(--mono);font-size:12px;color:var(--accent);
-    letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;font-weight:500;
-  }
-  .tags{display:flex;flex-wrap:wrap;gap:8px}
-  .tag{
-    font-size:13.5px;color:var(--text);background:var(--ink-2);
-    border:1px solid var(--line);padding:6px 12px;border-radius:6px;
-    transition:all .2s;
-  }
-  .tag:hover{border-color:var(--accent-dim);color:var(--accent)}
+  /* SKILLS - offset raw grid */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:2px solid var(--text);border-left:2px solid var(--text)}
+  @media(max-width:680px){.skill-grid{grid-template-columns:1fr}}
+  .skill-card{padding:24px 22px;border-right:2px solid var(--text);border-bottom:2px solid var(--text)}
+  .skill-card h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.5px;margin-bottom:15px;color:var(--red-2)}
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{font-size:12.5px;font-weight:500;color:var(--text);border:1.5px solid var(--line);padding:5px 11px;transition:all .2s}
+  .tag:hover{background:var(--text);color:var(--ink)}
 
-  /* EXPERIENCE */
-  .job{border:1px solid var(--line);border-radius:12px;padding:28px 26px;background:linear-gradient(180deg,var(--ink-2),transparent)}
-  .job-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:6px}
-  .job-title{font-family:var(--display);font-weight:600;font-size:20px}
-  .job-co{color:var(--accent);font-weight:600;font-size:15px}
-  .job-meta{font-family:var(--mono);font-size:13px;color:var(--muted)}
-  .job ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:13px}
-  .job li{position:relative;padding-left:22px;color:var(--muted);font-size:15.5px}
-  .job li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
+  /* EXPERIENCE - offset numbered blocks */
+  .job{display:grid;grid-template-columns:auto 1fr;gap:22px;padding:26px 0;border-top:2px solid var(--line)}
+  .job:first-child{border-top:none;padding-top:0}
+  .job-idx{font-family:'Archivo Black',sans-serif;font-size:34px;color:var(--red-2);line-height:1;opacity:.7}
+  .job-head{margin-bottom:12px}
+  .job-title{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:20px;letter-spacing:-.3px}
+  .job-co{color:var(--red-2);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;margin-top:3px}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .job li{position:relative;padding-left:20px;color:var(--muted);font-size:14.5px}
+  .job li::before{content:"→";position:absolute;left:0;color:var(--red-2);font-weight:700}
   .job li strong{color:var(--text);font-weight:500}
-  .intern{margin-top:16px;padding:18px 22px;border:1px dashed var(--line);border-radius:10px}
-  .intern .job-title{font-size:16px}
-  .intern p{color:var(--muted);font-size:14.5px;margin-top:8px}
+  @media(max-width:600px){.job{grid-template-columns:1fr;gap:8px}}
 
-  /* EDU + CERTS */
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  @media(max-width:600px){.two-col{grid-template-columns:1fr}}
-  .panel{border:1px solid var(--line);border-radius:12px;padding:24px 22px}
-  .panel h3{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;font-weight:500}
-  .panel .item{margin-bottom:14px}
-  .panel .item:last-child{margin-bottom:0}
-  .panel .t{font-weight:600;font-size:15.5px}
-  .panel .s{color:var(--muted);font-size:14px;margin-top:2px}
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:2px solid var(--text);border-top:2px solid var(--text)}
+  @media(max-width:760px){.proj-grid{grid-template-columns:1fr}}
+  .proj{padding:26px 22px;border-right:2px solid var(--text);border-bottom:2px solid var(--text);transition:all .2s}
+  .proj:hover{background:var(--red);color:#f3ece0}
+  .proj:hover .stack,.proj:hover p{color:#f3ece0}
+  .proj:hover .pnum{color:#0c0c0b}
+  .proj .pnum{font-family:'Archivo Black',sans-serif;font-size:30px;color:var(--red-2);margin-bottom:12px}
+  .proj h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:-.2px;margin-bottom:8px}
+  .proj .stack{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--red-2);margin-bottom:12px;font-weight:700}
+  .proj p{color:var(--muted);font-size:13.5px}
 
   /* CONTACT */
-  .contact{text-align:center;padding:80px 0 70px}
-  .contact h2{margin-bottom:14px}
-  .contact p{color:var(--muted);max-width:460px;margin:0 auto 30px}
-  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .contact{text-align:center;padding:96px 0;border-bottom:none}
+  .contact h2{font-size:clamp(46px,13vw,150px);margin-bottom:2px}
+  .contact .script{font-size:clamp(30px,7vw,60px);display:block;margin-bottom:28px}
+  .contact p{color:var(--muted);max-width:420px;margin:0 auto 30px}
+  .contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-  footer{border-top:1px solid var(--line);padding:26px 0}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  footer p{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+  footer{padding:26px 0;border-top:2px solid var(--text)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
 
-  /* reveal */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
@@ -163,88 +136,92 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand">VT<b>.</b></div>
-    <div class="navlinks">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+    <div class="brand"></div>
+    <div class="nav-right">
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#skills">Skills</a>
+        <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+      </button>
     </div>
   </div>
 </nav>
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">Operations Engineer · Payments</div>
-    <h1>Vijayaprakash T<br><span class="accent">payment operations</span> &amp; automation</h1>
-    <p class="lede">I keep money moving. I investigate transactions, reconcile settlements, and build automation across acquirer and processor systems — turning messy payment operations into reliable, repeatable workflows.</p>
+    <div class="hero-kicker"><b>&bull;</b> Portfolio &nbsp;2026</div>
+    <h1 class="name black">Vijayaprakash<span class="dot">.</span></h1>
+    <div class="hero-role">Operations Engineer</div>
+    <span class="hero-script">payments &amp; automation</span>
+    <p class="lede">I keep money moving. From backend development to live payment operations — investigating transactions, reconciling settlements, resolving production issues, and building automation across acquirer and processor systems.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#contact">Get in touch</a>
-      <a class="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
+      <a class="btn btn-red" href="resume.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download Résumé
+      </a>
+      <a class="btn btn-outline" href="#contact">Get in Touch</a>
     </div>
   </div>
 </header>
 
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Payments</span><span>SQL</span><span>Automation</span><span>Reconciliation</span><span>Node.js</span><span>Settlement</span><span>Production Support</span>
+    <span>Payments</span><span>SQL</span><span>Automation</span><span>Reconciliation</span><span>Node.js</span><span>Settlement</span><span>Production Support</span>
+  </div>
+</div>
+
 <section id="about" class="about reveal">
   <div class="wrap">
-    <div class="sec-label"><span>01</span> About</div>
-    <h2>Domain depth meets scripting.</h2>
-    <p>I'm an Operations Engineer with over two years at a payment technology company, working across the full payment lifecycle — <strong>card acquiring, settlement, reconciliation, and transaction investigation</strong>. My day-to-day sits directly on acquirer and processor platforms including Fiserv, Worldline, and NETS.</p>
-    <p>What sets my work apart is the combination of payments domain knowledge with real technical skill: I write <strong>advanced SQL</strong> to investigate and reconcile data, and build <strong>Node.js and Python automation</strong> that removes manual effort from recurring operations. I like problems that are equal parts detective work and engineering.</p>
-    <div class="stat-row">
-      <div class="stat"><div class="num">2+</div><div class="cap">Years in payments</div></div>
-      <div class="stat"><div class="num">3</div><div class="cap">Acquirer platforms</div></div>
-      <div class="stat"><div class="num">SQL</div><div class="cap">+ Node.js / Python</div></div>
+    <div class="sec-head"><span class="sec-num">01</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm an Operations Engineer with over two years at a payment technology company, where I've grown from software engineering into payment operations. I work across the full payment lifecycle — <strong>card acquiring, settlement, reconciliation, and transaction investigation</strong> — on acquirer and processor platforms including Fiserv, Worldline, and NETS.</p>
+        <p>My edge is combining payments domain knowledge with real technical skill: <strong>backend development</strong> in Node.js and TypeScript, <strong>advanced SQL</strong> for investigation and reconciliation, and <strong>automation</strong> that removes manual effort from recurring operations.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">2+</div><div class="cap">Years in Payments</div></div>
+        <div class="stat"><div class="num">3</div><div class="cap">Acquirer Platforms</div></div>
+        <div class="stat"><div class="num">3</div><div class="cap">Roles Progressed</div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="skills" class="reveal">
   <div class="wrap">
-    <div class="sec-label"><span>02</span> Skills</div>
-    <h2>What I work with.</h2>
+    <div class="sec-head"><span class="sec-num">02</span><h2>Skills</h2></div>
     <div class="skill-grid">
+      <div class="skill-card">
+        <h3>Languages &amp; Frameworks</h3>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Node.js</span>
+          <span class="tag">Express.js</span><span class="tag">NestJS</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Databases &amp; Tools</h3>
+        <div class="tags">
+          <span class="tag">PostgreSQL</span><span class="tag">TypeORM</span><span class="tag">REST APIs</span>
+          <span class="tag">JWT</span><span class="tag">Git</span><span class="tag">JSON</span><span class="tag">Query Optimization</span>
+        </div>
+      </div>
       <div class="skill-card">
         <h3>Payments &amp; Domain</h3>
         <div class="tags">
-          <span class="tag">Card acquiring &amp; settlement</span>
-          <span class="tag">Reconciliation</span>
-          <span class="tag">Transaction lifecycle</span>
-          <span class="tag">Chargebacks &amp; disputes</span>
-          <span class="tag">Terminal &amp; merchant lifecycle</span>
-          <span class="tag">POS / contactless</span>
+          <span class="tag">Acquiring &amp; Settlement</span><span class="tag">Reconciliation</span>
+          <span class="tag">Transaction Lifecycle</span><span class="tag">Payment Architecture</span>
+          <span class="tag">Terminal Management</span><span class="tag">POS / Contactless</span>
         </div>
       </div>
       <div class="skill-card">
-        <h3>Technical</h3>
+        <h3>Strengths</h3>
         <div class="tags">
-          <span class="tag">SQL / PostgreSQL</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Python</span>
-          <span class="tag">pandas</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">JSON</span>
-          <span class="tag">Git</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>Platforms &amp; Systems</h3>
-        <div class="tags">
-          <span class="tag">Fiserv</span>
-          <span class="tag">Worldline</span>
-          <span class="tag">NETS</span>
-          <span class="tag">Payment terminals / POS</span>
-          <span class="tag">Settlement systems</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h3>Operational Strengths</h3>
-        <div class="tags">
-          <span class="tag">Incident triage</span>
-          <span class="tag">Root-cause analysis</span>
-          <span class="tag">Merchant &amp; partner integration</span>
-          <span class="tag">Process automation</span>
-          <span class="tag">Cross-functional collaboration</span>
+          <span class="tag">Production Support</span><span class="tag">Incident Triage</span>
+          <span class="tag">Root-Cause Analysis</span><span class="tag">Process Automation</span><span class="tag">Collaboration</span>
         </div>
       </div>
     </div>
@@ -253,58 +230,64 @@
 
 <section id="experience" class="reveal">
   <div class="wrap">
-    <div class="sec-label"><span>03</span> Experience</div>
-    <h2>Where I've done the work.</h2>
+    <div class="sec-head"><span class="sec-num">03</span><h2>Career</h2><span class="script">journey</span></div>
     <div class="job">
-      <div class="job-head">
-        <div>
-          <div class="job-title">Operations Engineer</div>
-          <div class="job-co">Surfboard Payments</div>
-        </div>
-        <div class="job-meta">2024 — Present · Chennai</div>
+      <div class="job-idx">01</div>
+      <div>
+        <div class="job-head"><div class="job-title">Operations Engineer</div><div class="job-co">Surfboard Payments</div></div>
+        <ul>
+          <li>Investigate and resolve <strong>payment transaction issues</strong> across acquirer and processor systems (Fiserv, Worldline, NETS), coordinating with merchants and partners to closure.</li>
+          <li>Process and validate daily <strong>multi-currency settlement files</strong>, resolving payout and bank-file discrepancies for accurate merchant payouts.</li>
+          <li>Apply <strong>advanced SQL (PostgreSQL)</strong> across payment and settlement data to investigate transactions, reconcile records, and deliver operational insight.</li>
+          <li>Address <strong>production issues</strong> on live payment flows — triaging errors, isolating root causes, and partnering with engineering on fixes.</li>
+          <li>Build <strong>Node.js and Python automation</strong> for recurring workflows and safeguard data integrity through reconciliation.</li>
+          <li>Manage <strong>terminal and device onboarding</strong> and enable merchant/partner integrations through go-live.</li>
+        </ul>
       </div>
-      <ul>
-        <li>Own the <strong>end-to-end investigation and resolution</strong> of payment transaction issues across acquirer and processor systems (Fiserv, Worldline, NETS), driving each case to closure with merchants and partners.</li>
-        <li>Ensure <strong>accurate and timely merchant payouts</strong> by processing and validating daily multi-currency settlement files and resolving payout and bank-file discrepancies.</li>
-        <li>Serve as <strong>first responder for production issues</strong> on live payment flows — triaging errors, isolating root causes, and partnering with engineering on fixes.</li>
-        <li>Apply <strong>advanced SQL</strong> across payment, order, and settlement data to investigate transactions, reconcile records, and deliver operational insight.</li>
-        <li>Design and maintain <strong>Node.js and Python automation</strong> for recurring workflows — data processing, currency conversion, and reporting — cutting manual effort and turnaround time.</li>
-        <li>Reconcile external reports against internal records to resolve missing or mismatched transactions, safeguarding data integrity across the payment pipeline.</li>
-        <li>Manage <strong>terminal and device onboarding</strong>, registration, and configuration across multiple hardware models, and support merchant/partner integrations through go-live.</li>
-      </ul>
     </div>
-    <div class="intern">
-      <div class="job-head">
-        <div><div class="job-title">Software Testing Intern</div></div>
-        <div class="job-meta">Chakram Private Limited · Chennai</div>
+    <div class="job">
+      <div class="job-idx">02</div>
+      <div>
+        <div class="job-head"><div class="job-title">Software Engineer Trainee</div><div class="job-co">Surfboard Payments</div></div>
+        <ul>
+          <li>Worked on the <strong>core payment architecture</strong>, gaining in-depth understanding of end-to-end system workflows and building the domain foundation for the operations role.</li>
+        </ul>
       </div>
-      <p>Executed manual and automated test cases, wrote test scenarios, and documented defects; used JIRA to track bugs on an e-commerce platform, improving the verification workflow and release stability.</p>
+    </div>
+    <div class="job">
+      <div class="job-idx">03</div>
+      <div>
+        <div class="job-head"><div class="job-title">Software Engineer Intern</div><div class="job-co">Surfboard Payments</div></div>
+        <ul>
+          <li>Built backend services with <strong>Express.js, PostgreSQL, and TypeORM</strong>, including an Employee Management API with search, pagination, and role-based access.</li>
+          <li>Developed applications with <strong>NestJS and TypeScript</strong>, including a Note app and a reusable JWT authentication service.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="education" class="reveal">
+<section id="projects" class="reveal">
   <div class="wrap">
-    <div class="sec-label"><span>04</span> Education &amp; Certifications</div>
-    <h2>Foundation.</h2>
-    <div class="two-col">
-      <div class="panel">
-        <h3>Education</h3>
-        <div class="item">
-          <div class="t">B.E. Computer Science &amp; Engineering</div>
-          <div class="s">Easwari Engineering College · CGPA 8.6 · 2024</div>
-        </div>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Work</h2><span class="script">showcase</span></div>
+    <div class="proj-grid">
+      <div class="proj">
+        <div class="pnum">01</div>
+        <h3>Employee Management API</h3>
+        <div class="stack">Express · PostgreSQL · TypeORM</div>
+        <p>REST API with field search, pagination, and role-based access control (super admin / admin) secured with JWT, plus optimized queries for responsive performance.</p>
       </div>
-      <div class="panel">
-        <h3>Certifications</h3>
-        <div class="item">
-          <div class="t">Data Analytics with Python</div>
-          <div class="s">NPTEL · IIT Roorkee</div>
-        </div>
-        <div class="item">
-          <div class="t">AI &amp; Virtual Reality Workshop</div>
-          <div class="s">Monolith Academy</div>
-        </div>
+      <div class="proj">
+        <div class="pnum">02</div>
+        <h3>JWT Auth Service</h3>
+        <div class="stack">NestJS · TypeScript · bcrypt</div>
+        <p>Reusable authentication service with access/refresh tokens and bcrypt hashing, reducing unauthorized access and deployable across projects.</p>
+      </div>
+      <div class="proj">
+        <div class="pnum">03</div>
+        <h3>Note Application</h3>
+        <div class="stack">NestJS · TypeScript</div>
+        <p>A note-taking application with full CRUD operations for creating, reading, updating, and deleting notes.</p>
       </div>
     </div>
   </div>
@@ -312,26 +295,30 @@
 
 <section id="contact" class="contact reveal">
   <div class="wrap">
-    <div class="sec-label" style="justify-content:center"><span>05</span> Contact</div>
-    <h2>Let's talk payments.</h2>
-    <p>Open to Payment Operations, Technical Support, Integration, and DevOps Engineering roles. Reach out and I'll get back to you.</p>
+    <h2 class="black">Get in Touch<span style="color:var(--red-2)">.</span></h2>
+    <span class="script">let's connect</span>
+    <p>Open to Operations, Technical Support, and Integration Engineering roles.</p>
     <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:vijayaprakashthinakaran@gmail.com">vijayaprakashthinakaran@gmail.com</a>
-      <a class="btn btn-ghost" href="resume.pdf" download>Download résumé</a>
-      <a class="btn btn-ghost" href="tel:+916381871490">+91 63818 71490</a>
+      <a class="btn btn-red" href="mailto:vijayaprakashthinakaran@gmail.com">Email Me</a>
+      <a class="btn btn-outline" href="resume.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Résumé
+      </a>
+      <a class="btn btn-outline" href="tel:+916381871490">+91 63818 71490</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <p>© 2026 Vijayaprakash T</p>
-    <p>Chennai, India</p>
-  </div>
+  <div class="wrap"><span>© 2026 Vijayaprakash T</span><span>Chennai, India</span></div>
 </footer>
 
 <script>
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  function toggleTheme(){
+    const html=document.documentElement;
+    html.setAttribute('data-theme', html.getAttribute('data-theme')==='dark' ? 'light' : 'dark');
+  }
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 
